@@ -1,0 +1,175 @@
+/** Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+/** Color Scheme */
+:root {
+    --text-dark: black;
+    --text-light: white;
+    --accent-color: black;
+    --dark-background: gray;
+    --light-background: lightgray;
+}
+/** Basic configuration */
+:root {
+    --border-test: 1px solid black;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    size: 0;
+}
+
+.container {
+    width: 100%;
+    height: 99vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Roboto', 'OpenSans', sans-serif; 
+}
+
+.text-center {
+    text-align: center;
+}
+/** Header */
+.header {
+    padding: 0 0.4rem;
+}
+
+.header > .top {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    width: 95%;
+    margin: auto;
+    border-bottom: 3px solid gray;
+}
+
+.header > .top > h1 {
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.header > .selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-family: 'Indie Flower';
+    font-size: 1.5rem;
+}
+
+.header > .selector > .date {
+    width: 25ch;
+}
+/** Main */
+.list {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.2rem;
+}
+
+.list > .items-container {
+    overflow: auto;
+    scrollbar-width: none;
+    background-color: var(--dark-background);
+}
+
+.list > .items-container::-webkit-scrollbar {   /*? Invisible Scrollbar for Safari, Chrome and Opera */
+    display: none; 
+}
+
+.list > .items-container {  /*? Invisible Scrollbar for IE, Edge and Safari*/
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+.list > .items-container > .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.2rem;
+    margin: 0.4rem auto;
+    width: 95%;
+    border-radius: 10px;
+    background-color: var(--light-background);
+}
+
+.todo {
+    width: 18ch;
+    padding: 0.2rem 0.4rem;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   font-weight: 700;
+}
+
+.list > .info {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0.3rem;
+    font-weight: 300;
+}
+/** Footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+}
+
+.footer > .text-input {
+    font-family: 'Indie Flower', 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    width: 40ch;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--light-background);
+}
+/** Buttons */
+.btn {
+    height: 2rem;
+    width: 2rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    background: none;
+    border: none;
+}
+
+.btn:active {
+    /* box-shadow: -0.06rem -0.06rem 0.06rem 0.06rem gray; */
+    opacity: 30%;
+}
+
+.btn-add {
+    color: var(--accent-color);
+}
+
+.btn-check {
+    color: green;
+}
+
+.btn-delete {
+    color: darkred;
+}
+/** Media Querries */
+
+/* Test Space */
+/* div, header, main, footer, label, input, span, .btn {
+    border: var(--border-test);
+} */

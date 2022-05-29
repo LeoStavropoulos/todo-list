@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="color-scheme" content="dark light"> -->
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
@@ -13,32 +14,103 @@
     <div class="container">
         <header class="header">
             <div class="top">
+                <h1>ToDo App</h1>
                 <button class="btn btn-dark-switch"><i class="fas fa-moon"></i></button>
             </div>
             <div class="selector">
                 <button class="btn btn-left"><i class="fas fa-chevron-left"></i></button>
-                <span class="date">Date placeholder</span>
+                <span class="date text-center">Sun, May 29th 2022</span>
                 <button class="btn btn-right"><i class="fas fa-chevron-right"></i></button>
             </div>
         </header>
         <main class="list">
-            <div>
-                <button class="btn btn-check"><i class="fas fa-check"></i></button>
-                <label for="" class="todo"> ToDo</label>
-                <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
-            </div>
-            <div>
-                <button class="btn btn-check"><i class="fas fa-check"></i></button>
-                <label for="" class="todo">New ToDo</label>
-                <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+            <div class="items-container">
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo"> ToDo</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">New ToDo</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor sit, amet consectetur dolor dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="btn btn-check"><i class="fas fa-check"></i></button>
+                    <label for="" class="todo">Lorem ipsum dolor</label>
+                    <div class="btn-container">
+                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
             </div>
             <div class="info"><span class="unfinished-number">2</span><span> unfinished todos</span></div>
         </main>
         <footer class="footer">
             <input class="text-input" type="text" id="new-todo" placeholder="add new to-do...">
-            <button class="btn btn-add"><i class="fas fa-plus"></i></button>
+            <button class="btn btn-add"><i class="fas fa-plus-circle"></i></button>
         </footer>
     </div>
 
