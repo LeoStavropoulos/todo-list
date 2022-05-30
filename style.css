@@ -128,8 +128,8 @@
     padding: 0.3rem;
     font-weight: 300;
 }
-/** Footer */
-.footer {
+/** Form */
+.form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,7 +137,7 @@
     margin: auto;
 }
 
-.footer > .text-input {
+.form > .text-input {
     font-family: 'Indie Flower', 'Times New Roman', Times, serif;
     font-size: 1rem;
     width: 40ch;
@@ -209,6 +209,6 @@
 /** Media Querries */
 
 /* Test Space */
-/* div, header, main, footer, label, input, span, .btn {
+/* div, header, main, form, label, input, span, .btn {
     border: var(--border-test);
 } */
