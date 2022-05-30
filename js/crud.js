@@ -1,16 +1,23 @@
 //Selectors
 const insertBtn = document.querySelector('.btn-add');
 const insertField = document.querySelector('.text-input');
-
+const todoList = document.querySelector('.items-container');
+const savedHTML = localStorage.todoAppStorage;
 //Event Listeners
-insertBtn.addEventListener('click', insertTodo)
+insertBtn.addEventListener('click', insertTodo);
 
-//Functions
+//Check local storage
+retrieveFromLocalStorage();
+console.log(localStorage)
+console.log(savedHTML)
+/***** Functions ******/
 
 //Insert a new todo
-function insertTodo() {
+function insertTodo(e) {
+    //Do not submit form
+    e.preventDefault();
+    
     //Selectors
-    const todoList = document.querySelector('.items-container');
     const todoText = insertField.value;
     const prototype = document.querySelector('#prototype');
 
@@ -35,13 +42,17 @@ function insertTodo() {
     editBtn.addEventListener('click', editTodo);
     checkBtn.addEventListener('click', checkTodo);
 
+    updateLocalStorage();
 }
 
 //Delete a todo
 function deleteTodo(e) {
     const item = e.target.parentElement.parentElement;
         item.classList.add('delete-animation');
-        setTimeout(function () {item.remove()}, 250);
+        setTimeout(function () {
+            item.remove();
+            updateLocalStorage();
+        }, 250);
 }
 
 //Edit a todo
@@ -53,8 +64,19 @@ function editTodo(e) {
         todo.focus();
 
         todo.addEventListener('focusout', function() {
+            if(!todo.innerHTML){todo.innerHTML = ' '}
             todo.removeAttribute('contenteditable')
+            updateLocalStorage();
         })
+        
+        todo.addEventListener('keypress', function(e) {
+            if(!todo.innerHTML){todo.innerHTML = ' '}
+            if (e.key !== 'Enter') return
+
+            todo.removeAttribute('contenteditable')
+            updateLocalStorage();
+        })
+
 }
 
 //Check a todo
@@ -63,4 +85,29 @@ function checkTodo(e) {
     const item = e.target.parentElement;
     item.classList.toggle('opacity50');
     item.querySelector('.todo').classList.toggle('strike');
+
+    updateLocalStorage();
 }
+
+//Retrieve form Local Storage and add Listeners
+
+function retrieveFromLocalStorage() {
+    if (!savedHTML) {return;}
+    
+    todoList.innerHTML = savedHTML;
+    const items = todoList.querySelectorAll('.item')
+
+    //Add event listeners to retrieved data
+    items.forEach(item => {
+        const checkBtn = item.firstElementChild
+        const editBtn = item.lastElementChild.firstElementChild
+        const deleteBtn = item.lastElementChild.lastElementChild
+
+        deleteBtn.addEventListener('click', deleteTodo);
+        editBtn.addEventListener('click', editTodo);
+        checkBtn.addEventListener('click', checkTodo);
+    });
+}
+
+//Update Local Storage
+function updateLocalStorage() {localStorage.todoAppStorage = todoList.innerHTML}
