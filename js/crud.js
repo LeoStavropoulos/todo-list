@@ -8,8 +8,10 @@ insertBtn.addEventListener('click', insertTodo);
 
 //Check local storage
 retrieveFromLocalStorage();
-console.log(localStorage)
-console.log(savedHTML)
+
+//Show unfinished todos
+showUnfinishedCount();
+
 /***** Functions ******/
 
 //Insert a new todo
@@ -43,6 +45,7 @@ function insertTodo(e) {
     checkBtn.addEventListener('click', checkTodo);
 
     updateLocalStorage();
+    showUnfinishedCount();
 }
 
 //Delete a todo
@@ -52,6 +55,7 @@ function deleteTodo(e) {
         setTimeout(function () {
             item.remove();
             updateLocalStorage();
+            showUnfinishedCount();
         }, 250);
 }
 
@@ -87,6 +91,7 @@ function checkTodo(e) {
     item.querySelector('.todo').classList.toggle('strike');
 
     updateLocalStorage();
+    showUnfinishedCount();
 }
 
 //Retrieve form Local Storage and add Listeners
@@ -111,3 +116,19 @@ function retrieveFromLocalStorage() {
 
 //Update Local Storage
 function updateLocalStorage() {localStorage.todoAppStorage = todoList.innerHTML}
+
+//Get unfinished todos
+function getUnfinished() {return document.querySelectorAll('.fa-check.hidden').length - 1;}
+
+//Show unfinished count
+
+function showUnfinishedCount() {
+    const unfinishedHTML = document.querySelector('.unfinished-number');
+    const count = getUnfinished();
+
+    if (count == '1') {
+        unfinishedHTML.innerHTML = count + ' unfinished todo';
+        return;
+    }
+    unfinishedHTML.innerHTML = count + ' unfinished todos';
+}
