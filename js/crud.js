@@ -1,16 +1,14 @@
+// Imports
+import { fullDate } from './calendar.js';
 //Selectors
 const insertBtn = document.querySelector('.btn-add');
 const insertField = document.querySelector('.text-input');
 const todoList = document.querySelector('.items-container');
-const savedHTML = localStorage.todoAppStorage;
 //Event Listeners
 insertBtn.addEventListener('click', insertTodo);
 
 //Check local storage
 retrieveFromLocalStorage();
-
-//Show unfinished todos
-showUnfinishedCount();
 
 /***** Functions ******/
 
@@ -46,6 +44,7 @@ function insertTodo(e) {
 
     updateLocalStorage();
     showUnfinishedCount();
+    console.log(fullDate);
 }
 
 //Delete a todo
@@ -96,8 +95,19 @@ function checkTodo(e) {
 
 //Retrieve form Local Storage and add Listeners
 
-function retrieveFromLocalStorage() {
-    if (!savedHTML) {return;}
+export function retrieveFromLocalStorage() {
+    let savedHTML = localStorage['todoAppStorage ' + fullDate.toDateString()];
+
+    if (!savedHTML) {
+        savedHTML = `<div class="item" id="prototype">
+                        <button class="btn btn-check"><i class="fas fa-check hidden"></i></button>
+                        <p class="todo"> ToDo Prototype</p>
+                        <div class="btn-container">
+                            <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>`
+    }
     
     todoList.innerHTML = savedHTML;
     const items = todoList.querySelectorAll('.item')
@@ -112,16 +122,18 @@ function retrieveFromLocalStorage() {
         editBtn.addEventListener('click', editTodo);
         checkBtn.addEventListener('click', checkTodo);
     });
+
+    //Show unfinished todos
+    showUnfinishedCount();
 }
 
 //Update Local Storage
-function updateLocalStorage() {localStorage.todoAppStorage = todoList.innerHTML}
+function updateLocalStorage() {localStorage['todoAppStorage ' + fullDate.toDateString()] = todoList.innerHTML}
 
 //Get unfinished todos
 function getUnfinished() {return document.querySelectorAll('.fa-check.hidden').length - 1;}
 
 //Show unfinished count
-
 function showUnfinishedCount() {
     const unfinishedHTML = document.querySelector('.unfinished-number');
     const count = getUnfinished();

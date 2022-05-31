@@ -75,7 +75,6 @@
 }
 
 .header > .selector > .btn:hover {
-    cursor: pointer;
     font-size: 0.8em;
 }
 
@@ -186,6 +185,10 @@
     background-color: var(--light-background);
 }
 
+/* .item:active, .todo:active{
+    cursor: grabbing;
+} */
+
 .todo {
     width: 18ch;
     padding: 0.2rem 0.4rem;
@@ -193,12 +196,12 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 2;
-   -webkit-box-orient: vertical;
-   font-weight: 700;
-   cursor: default;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-weight: 700;
+    cursor: default;
 }
 
 
@@ -238,6 +241,10 @@
     border-radius: 50%;
     background: none;
     border: none;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .btn:active {

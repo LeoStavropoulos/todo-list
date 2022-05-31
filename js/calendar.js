@@ -1,5 +1,8 @@
+//Imports
+import { retrieveFromLocalStorage } from './crud.js';
+
 //Selectors
-const fullDate = new Date(); //current date, but it changes in renderCaldendar
+export const fullDate = new Date(); //current date, but it changes in renderCaldendar
 const today = new Date(); //current date that stays unchanged 
 const pivotDate = new Date();  //points to the selected date before openning the calendar
 
@@ -21,6 +24,7 @@ nextBtn.addEventListener('click', function() {
     if(calendarDialog.getAttribute('open') === null) {
         fullDate.setDate(day + 1);
         addformatedDate();
+        retrieveFromLocalStorage();
         return;
     }
     
@@ -36,6 +40,7 @@ prevBtn.addEventListener('click', function() {
     if(calendarDialog.getAttribute('open') === null) {
         fullDate.setDate(day - 1);
         addformatedDate();
+        retrieveFromLocalStorage();
         return;
     }
     
@@ -107,6 +112,7 @@ function toggleCalendar() {
     if(calendarDialog.getAttribute('open') === null) {
         fullDate.setFullYear(pivotDate.getFullYear(), pivotDate.getMonth(), pivotDate.getDate());
         addformatedDate();
+        retrieveFromLocalStorage();
         return;
     }
     
