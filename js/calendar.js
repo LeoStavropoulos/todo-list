@@ -74,7 +74,7 @@ function renderCalendar() {
     for (let i = 1; i <= monthLastDay; i++) {
         
         if ((i === today.getDate()) && (fullDate.getMonth() === today.getMonth()) && (fullDate.getFullYear() === today.getFullYear())) {
-            daysGrid.innerHTML += `<li class="today">${i}</li>`;
+            daysGrid.innerHTML += `<li class="selected-day">${i}</li>`;
         } else {
             daysGrid.innerHTML += `<li>${i}</li>`;
         }
