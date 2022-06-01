@@ -159,11 +159,17 @@ body {
     padding: var(--calendar-day-padding);
     text-align: center;
     border: 1px solid var(--secondary-light-color);
+    border-radius: 5px;
     color: var(--accent-color);
     text-shadow: 1px 1px var(--secondary-dark-color);
 }
 
 .calendar > .days .selected-day {
+    
+    border: 1px solid var(--accent-color);
+}
+
+.calendar > .days .today {
     background-color: var(--accent-color);
     color: var(--secondary-light-color);
     text-shadow: 1px 1px var(--secondary-dark-color);
@@ -178,6 +184,10 @@ body {
     cursor: pointer;
     border: 1px solid var(--accent-color);
     transition-duration: 0.3s;
+}
+
+.calendar > .days li:active {
+    opacity: 50%;
 }
 
 .calendar > .days .prev-days,

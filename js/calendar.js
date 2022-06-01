@@ -12,6 +12,7 @@ const dateSelector = document.querySelector('.selector>.date');
 const calendarDialog = document.querySelector('.calendar');
 const todoItemsContainer = document.querySelector('.list');
 const inputForm = document.querySelector('.form');
+const container = document.querySelector('.container');
 
 addformatedDate();
 
@@ -51,6 +52,15 @@ prevBtn.addEventListener('click', function() {
 
 dateSelector.addEventListener('click', toggleCalendar);
 
+container.addEventListener('click', function(e) {
+    const targetParentClass = e.target.parentElement.className;
+    
+    if ((targetParentClass === 'days') || (targetParentClass === 'selector') || (targetParentClass === 'btn btn-right') || (targetParentClass === 'btn btn-left') || (calendarDialog.getAttribute('open') === null)) return;
+    toggleCalendar();
+    // weekdays
+    // calendar
+})
+
 
 //Functions
 
@@ -73,7 +83,11 @@ function renderCalendar() {
     //Creating currrent month's days
     for (let i = 1; i <= monthLastDay; i++) {
         
+        // Selected day > today
+        
         if ((i === today.getDate()) && (fullDate.getMonth() === today.getMonth()) && (fullDate.getFullYear() === today.getFullYear())) {
+            daysGrid.innerHTML += `<li class="today">${i}</li>`;
+        } else if ((i === pivotDate.getDate()) && (fullDate.getMonth() === pivotDate.getMonth()) && (fullDate.getFullYear() === pivotDate.getFullYear())) {
             daysGrid.innerHTML += `<li class="selected-day">${i}</li>`;
         } else {
             daysGrid.innerHTML += `<li>${i}</li>`;
@@ -101,14 +115,13 @@ function renderCalendar() {
 }
 
 function toggleCalendar() {
-    renderCalendar();
     calendarDialog.toggleAttribute('open'); 
-
+    
     todoItemsContainer.classList.toggle('blured');
     todoItemsContainer.classList.toggle('unclickable');
     inputForm.classList.toggle('blured');
     inputForm.classList.toggle('unclickable');
-
+    
     if(calendarDialog.getAttribute('open') === null) {
         fullDate.setFullYear(pivotDate.getFullYear(), pivotDate.getMonth(), pivotDate.getDate());
         addformatedDate();
@@ -118,6 +131,7 @@ function toggleCalendar() {
     
     pivotDate.setFullYear(fullDate.getFullYear(), fullDate.getMonth(), fullDate.getDate());
     addFormatedMonth();
+    renderCalendar();
 }
 
 
@@ -162,7 +176,6 @@ function skipToDate(e) {
     const dateNumber = parseInt(e.target.innerHTML);
 
     switch (className) {
-        case 'today':
         case 'days':
             return;
         case 'prev-days':
