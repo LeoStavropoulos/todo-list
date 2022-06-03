@@ -74,20 +74,49 @@ body {
 .header > .top {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0.5rem 0;
     width: 95%;
     margin: auto;
     border-bottom: 3px solid var(--accent-color);
 }
 
+.header > .top > .clock {
+    width: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6rem;
+    color: var(--light-text-color);
+    text-shadow: 1px 1px var(--light-text-shadow-color);
+    background-color: var(--secondary-dark-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 15px;
+}
+
+.header > .top > .clock > span {
+    width: 15ch;
+    margin: 0.4em;
+}
+
+.header > .top > .clock :first-child {
+    font-style: italic;
+}
+
 .header > .top > h1 {
-    width: 95%;
+    width: 90%;
     margin: auto;
     font-weight: 400;
     color: var(--accent-color);
     text-shadow: 2px 2px var(--secondary-dark-color);
     font-size: var(--h1-font-size);
+}
+
+.header > .top > span {
+    width: 4rem;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .header > .selector {
@@ -428,6 +457,17 @@ body {
 @media screen and (min-height: 800px) {
     .list {
         height: 70%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .header > .top > .clock {
+        width: 7rem;
+        font-size: 1rem; 
+    }
+
+    .header > .top > span {
+        width: 7rem;
     }
 }
 
