@@ -41,11 +41,6 @@
 body {
     background-color: var(--secondary-light-color);
     -webkit-tap-highlight-color: transparent;
-    padding:
-    env(safe-area-inset-top)
-    env(safe-area-inset-right)
-    env(safe-area-inset-bottom)
-    env(safe-area-inset-left);
 }
 
 
@@ -465,6 +460,14 @@ body {
 }
 
 /** Media Querries */
+
+/* ! Height issue quickfix for safari on ios */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: 600px){
+    .container{
+        height: 85vh;
+    }
+}
+
 
 @media screen and (min-height: 800px) {
     .list {
