@@ -71,6 +71,10 @@ body {
     text-align: center;
 }
 
+.header:hover {
+    cursor: default;
+}
+
 .header > .top {
     display: flex;
     align-items: center;
@@ -87,7 +91,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 700;
     color: var(--light-text-color);
     text-shadow: 1px 1px var(--light-text-shadow-color);
     background-color: var(--secondary-dark-color);
@@ -102,11 +107,13 @@ body {
 
 .header > .top > .clock :first-child {
     font-style: italic;
+    font-size: 0.8em;
 }
 
 .header > .top > h1 {
-    width: 90%;
+    width: 60%;
     margin: auto;
+    padding-right: 2.5%;
     font-weight: 400;
     color: var(--accent-color);
     text-shadow: 2px 2px var(--secondary-dark-color);
@@ -246,6 +253,10 @@ body {
     border-bottom: 2px solid var(--accent-color);
 }
 
+.list:hover {
+    cursor: default;
+}
+
 .list > .items-container {
     min-height: 90%;
     overflow: auto;
@@ -306,6 +317,7 @@ body {
 .todo:focus {
     outline: none;
     border: 2px solid var(--light-text-color);
+    cursor: text;
 }
 
 
@@ -460,10 +472,14 @@ body {
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 550px) {
     .header > .top > .clock {
         width: 7rem;
         font-size: 1rem; 
+    }
+
+    .header > .top > .clock > span {
+        margin: 0.6rem;
     }
 
     .header > .top > span {
@@ -482,6 +498,10 @@ body {
         --todo-height: 4rem;
         --todo-padding: 0.5rem 1rem;
         --calendar-day-padding: 1.5rem 0;
+    }
+
+    .header > .top > .clock {
+        font-size: 1.2rem; 
     }
 
     .calendar {
