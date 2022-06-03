@@ -9,11 +9,13 @@ Factory](https://codingfactory.aueb.gr) bootcamp.
 - Data stored offline, in browser's Local Storage.
 - Session's data are available even after relaunching browser.
 - Day per day task navigation and monthly calendar view
+- Dark Mode toggle, with choice memory
+- Current date/time display
 
 ## Upcoming Feautures:
-- Dark Mode toggle
-- Current date/time display
 - Themes
+- Drag & Drop list rearranging
+- Calendar marks that indicate that there are unfinished todos on the specific date
 
 ## References:
 - Fonts:    [Google Fonts](https://fonts.google.com)
