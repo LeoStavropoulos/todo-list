@@ -49,12 +49,15 @@ function insertTodo(e) {
 //Delete a todo
 function deleteTodo(e) {
     const item = e.target.parentElement.parentElement;
-        item.classList.add('delete-animation');
-        setTimeout(function () {
-            item.remove();
-            updateLocalStorage();
-            showUnfinishedCount();
-        }, 250);
+    
+    item.classList.add('delete-animation');
+    setTimeout(function () {
+        item.remove();
+        updateLocalStorage();
+        showUnfinishedCount();
+        //clear local storage if there are no more todos left
+        if (todoList.childElementCount < 2) clearDateLocalStorage(); //the 'prototype element' counts as 1
+    }, 250);
 }
 
 //Edit a todo
@@ -128,6 +131,9 @@ export function retrieveFromLocalStorage() {
 
 //Update Local Storage
 function updateLocalStorage() {localStorage['todoAppStorage ' + fullDate.toDateString()] = todoList.innerHTML}
+
+//Clear Local Storage
+function clearDateLocalStorage() {localStorage.removeItem('todoAppStorage ' + fullDate.toDateString())}
 
 //Get unfinished todos
 function getUnfinished() {return document.querySelectorAll('.fa-check.hidden').length - 1;}
