@@ -44,7 +44,6 @@ function insertTodo(e) {
 
     updateLocalStorage();
     showUnfinishedCount();
-    console.log(fullDate);
 }
 
 //Delete a todo
