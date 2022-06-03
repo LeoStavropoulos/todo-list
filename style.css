@@ -1,12 +1,24 @@
 /** Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
 /** Color Scheme */
 :root {
     --accent-color: #C57B02;
     --secondary-dark-color: #E4B98D;
     --secondary-light-color: #FFEBCC;
+    --light-text-color: #FFEBCC;
+    --light-text-shadow-color: #C57B02;
 }
+
+.dark-theme {
+    --accent-color: #c4ac86;
+    --secondary-dark-color: #7a654e;
+    --secondary-light-color: #120c01;
+    --light-text-color: #c4ac86;
+    --light-text-shadow-color: #120c01;
+}
+
 /** Basic configuration */
 :root {
     --normal-font-size: 1.2rem;
@@ -28,12 +40,14 @@
 
 body {
     background-color: var(--secondary-light-color);
+    -webkit-tap-highlight-color: transparent;
     padding:
     env(safe-area-inset-top)
     env(safe-area-inset-right)
     env(safe-area-inset-bottom)
     env(safe-area-inset-left);
 }
+
 
 .container {
     width: 100%;
@@ -47,9 +61,6 @@ body {
     background-color: var(--secondary-light-color); 
 }
 
-.text-center {
-    text-align: center;
-}
 /** Header */
 .header {
     padding: 0 0.4rem;
@@ -57,11 +68,13 @@ body {
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
+    text-align: center;
 }
 
 .header > .top {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0.5rem 0;
     width: 95%;
     margin: auto;
@@ -71,7 +84,6 @@ body {
 .header > .top > h1 {
     width: 95%;
     margin: auto;
-    text-align: center;
     font-weight: 400;
     color: var(--accent-color);
     text-shadow: 2px 2px var(--secondary-dark-color);
@@ -103,7 +115,6 @@ body {
 }
 
 /** Calendar **/
-
 .calendar {
     width: 90%;
     margin: auto;
@@ -130,8 +141,8 @@ body {
     align-items: center;
     text-align: center;
     background-color: var(--secondary-dark-color);
-    color: var(--secondary-light-color);
-    text-shadow: 2px 2px var(--accent-color);
+    color: var(--light-text-color);
+    text-shadow: 2px 2px var(--light-text-shadow-color);
 }
 
 .calendar .weekdays li {
@@ -258,14 +269,14 @@ body {
     -webkit-box-orient: vertical;
     font-weight: 700;
     cursor: default;
-    color: var(--secondary-light-color);
-    text-shadow: 1px 1px var(--accent-color);
+    color: var(--light-text-color);
+    text-shadow: 1px 1px var(--light-text-shadow-color);
     border-radius: 5px;
 }
 
 .todo:focus {
     outline: none;
-    border: 2px solid var(--secondary-light-color);
+    border: 2px solid var(--light-text-color);
 }
 
 
@@ -362,21 +373,16 @@ body {
     text-shadow: 2px 2px var(--secondary-dark-color);
 }
 
-.btn-edit{
-    color: var(--secondary-light-color);
-    text-shadow: 1px 1px var(--accent-color);
-}
-
 .btn-check {
     color: green;
-    border: 2px solid var(--secondary-light-color);
-    text-shadow: 1px 1px var(--accent-color);
-    box-shadow: 1px 1px var(--accent-color);
+    border: 2px solid var(--light-text-color);
+    text-shadow: 1px 1px var(--light-text-shadow-color);
+    box-shadow: 1px 1px var(--light-text-shadow-color);
 }
 
-.btn-delete {
-    color: var(--secondary-light-color);
-    text-shadow: 1px 1px var(--accent-color);
+.btn-delete, .btn-edit {
+    color: var(--light-text-color);
+    text-shadow: 1px 1px var(--light-text-shadow-color);
 }
 
 .fa-edit, .fa-check, .fa-trash {
