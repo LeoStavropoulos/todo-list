@@ -11,11 +11,11 @@ Factory](https://codingfactory.aueb.gr) bootcamp.
 - Day per day task navigation and monthly calendar view
 - Dark Mode toggle, with choice memory
 - Current date/time display
+- Calendar marks which indicate that there are unfinished todos on the specific date
 
 ## Upcoming Feautures:
 - Themes
 - Drag & Drop list rearranging
-- Calendar marks that indicate that there are unfinished todos on the specific date
 
 ## References:
 - Fonts:    [Google Fonts](https://fonts.google.com)

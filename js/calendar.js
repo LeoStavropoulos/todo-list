@@ -77,31 +77,31 @@ function renderCalendar() {
 
     //Creating days of previous month
     for (let i = monthFirstDay; i > 0; i--) {
-        daysGrid.innerHTML += `<li class="prev-days">${prevLastDay - i + 1}</li>`;
+        daysGrid.innerHTML += `<li class="prev-days"><span>${prevLastDay - i + 1}</span><span class="opacity0">&#8226;</span></li>`;
     }
     
     //Creating currrent month's days
     for (let i = 1; i <= monthLastDay; i++) {
         
-        // Selected day > today
+        // Selected day < today
         
         if ((i === today.getDate()) && (fullDate.getMonth() === today.getMonth()) && (fullDate.getFullYear() === today.getFullYear())) {
-            daysGrid.innerHTML += `<li class="today">${i}</li>`;
+            daysGrid.innerHTML += `<li class="today"><span>${i}</span><span class="opacity0">&#8226;</span></li>`;
         } else if ((i === pivotDate.getDate()) && (fullDate.getMonth() === pivotDate.getMonth()) && (fullDate.getFullYear() === pivotDate.getFullYear())) {
-            daysGrid.innerHTML += `<li class="selected-day">${i}</li>`;
+            daysGrid.innerHTML += `<li class="selected-day"><span>${i}</span><span class="opacity0">&#8226;</span></li>`;
         } else {
-            daysGrid.innerHTML += `<li>${i}</li>`;
+            daysGrid.innerHTML += `<li><span>${i}</span><span class="opacity0">&#8226;</span></li>`;
         }
     }
     
     //Creating next month's days
     for (let i = 1; i <= missingDays; i++) {
-        daysGrid.innerHTML += `<li class="next-days">${i}</li>`;
+        daysGrid.innerHTML += `<li class="next-days"><span>${i}</span><span class="opacity0">&#8226;</span></li>`;
     }
-    
-    const daysGridElements = document.querySelectorAll('.days > li');
-    
-    
+
+    //Add marks on calendar
+    markUnfinishedOnCalendar(daysGrid, fullDate);
+
     //Adding event listeners
     daysGrid.addEventListener('click', skipToDate);
 
@@ -109,7 +109,7 @@ function renderCalendar() {
     const week = Math.ceil((monthFirstDay + monthLastDay) / 7)
     if ( week < 6) {
         for (let i = 1; i <= 7; i++) {
-            daysGrid.innerHTML += `<li style='opacity: 0;' class='unclickable'>1</li>`;
+            daysGrid.innerHTML += `<li style='opacity: 0;' class='unclickable'><span>0</span></span><span>&#8226;</span></li>`;
         }
     }
 }
@@ -173,19 +173,19 @@ function addFormatedMonth() {
 
 function skipToDate(e) {
     const className = e.target.className;
-    const dateNumber = parseInt(e.target.innerHTML);
+    const dateNumber = parseInt(e.target.firstElementChild.innerHTML);
 
     switch (className) {
         case 'days':
             return;
         case 'prev-days':
-            pivotDate.setFullYear(fullDate.getFullYear(), fullDate.getMonth() - 1);
+            pivotDate.setFullYear(fullDate.getFullYear(), fullDate.getMonth() - 1, 1);
             break;
         case 'next-days':
-            pivotDate.setFullYear(fullDate.getFullYear(), fullDate.getMonth() + 1);
+            pivotDate.setFullYear(fullDate.getFullYear(), fullDate.getMonth() + 1, 1);
             break;
         default:
-            pivotDate.setFullYear(fullDate.getFullYear(), fullDate.getMonth());
+            pivotDate.setFullYear(fullDate.getFullYear(), fullDate.getMonth(), 1);
             break;
     }
 
@@ -194,3 +194,44 @@ function skipToDate(e) {
 
 }
 
+function markUnfinishedOnCalendar(daysGrid, shownDate) {
+    const daysGridElements = daysGrid.querySelectorAll('.days > li > .opacity0');
+    const currentMonth = shownDate.getMonth();
+    const prevMonth = shownDate.getMonth() - 1;
+    const nextMonth = shownDate.getMonth() + 1;
+    const lastDay = new Date(shownDate.getFullYear(), nextMonth, 0).getDate() //currrent month's last day
+
+    let i = 0;
+
+    //Checking previous month's days
+    while (daysGridElements[i].previousElementSibling.innerHTML > 1) {
+        const dateString = new Date(shownDate.getFullYear(), prevMonth, daysGridElements[i].previousElementSibling.innerHTML).toDateString()
+        showIfUnfinished(dateString, daysGridElements[i]);
+        i++
+    }
+    
+    //Checking current month's days
+    while (i <= lastDay) {
+        const dateString = new Date(shownDate.getFullYear(), currentMonth, daysGridElements[i].previousElementSibling.innerHTML).toDateString()
+        showIfUnfinished(dateString, daysGridElements[i]);
+        i++
+    }
+    //Checking next month's days
+    while (daysGridElements[i]) {
+        const dateString = new Date(shownDate.getFullYear(), nextMonth, daysGridElements[i].previousElementSibling.innerHTML).toDateString()
+        showIfUnfinished(dateString, daysGridElements[i]);
+        i++
+    }
+}
+
+function showIfUnfinished(date, element) {
+    const key = "todoAppStorage " + date;
+    if (!(localStorage[key])) return;
+    
+    const obj = document.createElement('html')
+    obj.innerHTML = localStorage[key]
+
+    if (obj.querySelectorAll('.fa-check.hidden').length < 2) return;
+    
+    element.classList.remove('opacity0');
+}

@@ -168,9 +168,9 @@ body {
 .calendar .weekdays {
     display: flex;
     justify-content: center;
-    padding: 0.2rem;
     align-items: center;
     text-align: center;
+    padding: 0.2rem;
     background-color: var(--secondary-dark-color);
     color: var(--light-text-color);
     text-shadow: 2px 2px var(--light-text-shadow-color);
@@ -191,12 +191,12 @@ body {
     align-items: center;
     justify-items: center;
     width: 100%;
-    padding: 0.5rem 0.2rem;
+    padding: 0.5rem 0 0.5rem 1rem;
     background-color: var(--secondary-light-color);
     border-radius: 5px;
 }
 
-.calendar > .days li {
+.calendar > .days > li{
     width: 14%;
     padding: var(--calendar-day-padding);
     text-align: center;
@@ -204,10 +204,16 @@ body {
     border-radius: 5px;
     color: var(--accent-color);
     text-shadow: 1px 1px var(--secondary-dark-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.calendar > .days > li > span {
+    pointer-events: none;
 }
 
 .calendar > .days .selected-day {
-    
     border: 1px solid var(--accent-color);
 }
 
@@ -432,6 +438,10 @@ body {
 
 .hidden {
     display: none;
+}
+
+.opacity0 {
+    opacity: 0;
 }
 
 .opacity50 {
