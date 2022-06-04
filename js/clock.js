@@ -50,14 +50,5 @@ function getformatedDate() {
 
 function getTime() {
     const fullDate = new Date();
-    const hours = formatTime(fullDate.getHours());
-    const minutes = formatTime(fullDate.getMinutes());
-    const seconds = formatTime(fullDate.getSeconds());
-
-    return hours + ":" + minutes + ":" + seconds;
-}
-
-function formatTime(x) {
-    if (x < 10) x = "0" + x;
-    return x;
+    return fullDate.toTimeString().slice(0,8);
 }
