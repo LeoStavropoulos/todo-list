@@ -164,11 +164,7 @@ function addformatedDate() {
 }
 
 function addFormatedMonth() {
-    const month = fullDate.getMonth();
-    const year = fullDate.getFullYear();
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    
-    dateSelector.innerHTML = monthNames[month] + ' ' + year;
+    dateSelector.innerHTML = fullDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})
 }
 
 function skipToDate(e) {
