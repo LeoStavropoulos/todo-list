@@ -9,18 +9,78 @@
     --secondary-light-color: #FFEBCC;
     --light-text-color: #FFEBCC;
     --light-text-shadow-color: #C57B02;
-
-    --dt-accent-color: #c4ac86;
-    --dt-secondary-light-color: #7a654e;
-    --dt-secondary-dark-color: #120c01;
 }
 
-.dark-theme {
+.theme-1 {
+    --accent-color: #609C88;
+    --secondary-dark-color: #376c5f;
+    --secondary-light-color: #D9EDDF;
+    --light-text-color:#D9EDDF;
+    --light-text-shadow-color: #609C88;
+}
+
+.theme-2 {
+    --accent-color: #4A68EA;
+    --secondary-dark-color: #7588FF;
+    --secondary-light-color: #F9F8FF;
+    --light-text-color: #F9F8FF;
+    --light-text-shadow-color: #4A68EA;
+}
+
+.theme-3 {
+    --accent-color: #FF60B6;
+    --secondary-dark-color: #D8BFD8;
+    --secondary-light-color: #FFF4FC;
+    --light-text-color: #FFF4FC;
+    --light-text-shadow-color: #FF60B6;
+}
+
+.theme-4 {
+    --accent-color: #B10A27;
+    --secondary-dark-color: #BC827D;
+    --secondary-light-color: #FFF3F0;
+    --light-text-color: #FFF3F0;
+    --light-text-shadow-color: #B10A27;
+}
+
+.theme-0.dark {
     --accent-color: #c4ac86;
     --secondary-dark-color: #7a654e;
     --secondary-light-color: #120c01;
     --light-text-color: #c4ac86;
     --light-text-shadow-color: #120c01;
+}
+
+.theme-1.dark {
+    --accent-color: #D9EDDF;
+    --secondary-dark-color: #6b8a71;
+    --secondary-light-color: #121813;
+    --light-text-color:#D9EDDF;
+    --light-text-shadow-color: #28362B;
+}
+
+.theme-2.dark {
+    --accent-color: #b2bbea;
+    --secondary-dark-color: #5863a9;
+    --secondary-light-color: #00082a;
+    --light-text-color: #b2bbea;
+    --light-text-shadow-color: #00082a;
+}
+
+.theme-3.dark {
+    --accent-color: #FFF4FC;
+    --secondary-dark-color: #9773A1;
+    --secondary-light-color: #5D4763;
+    --light-text-color: #FFF4FC;
+    --light-text-shadow-color: #5D4763;
+}
+
+.theme-4.dark {
+    --accent-color: #FFF3F0;
+    --secondary-dark-color: #BC827D;
+    --secondary-light-color: #2D1B1D;
+    --light-text-color: #FFF3F0;
+    --light-text-shadow-color: #2D1B1D;
 }
 
 /** Basic configuration */
