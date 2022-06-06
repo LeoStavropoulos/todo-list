@@ -9,6 +9,10 @@
     --secondary-light-color: #FFEBCC;
     --light-text-color: #FFEBCC;
     --light-text-shadow-color: #C57B02;
+
+    --dt-accent-color: #c4ac86;
+    --dt-secondary-light-color: #7a654e;
+    --dt-secondary-dark-color: #120c01;
 }
 
 .dark-theme {
@@ -119,6 +123,47 @@ body {
     width: 4rem;
     display: flex;
     justify-content: flex-end;
+}
+
+.theme-selector {
+    display: inline-block;
+}
+
+.theme-selector > .theme-dropdown{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin: 0 0.4rem;
+    padding: 0.3rem;
+    -webkit-backdrop-filter: brightness(0.85) blur(5px);
+    backdrop-filter: brightness(0.85) blur(5px);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.theme-selector > .theme-dropdown > button {
+    opacity: 0;
+}
+
+.animation-1 {
+    transform-origin: top center;
+    animation: rotateZ 200ms 50ms ease-in-out forwards;
+}
+ 
+.animation-2 {
+    transform-origin: top center;
+    animation: rotateZ 200ms 100ms ease-in-out forwards;
+}
+ 
+.animation-3 {
+    transform-origin: top center;
+    animation: rotateZ 200ms 150ms ease-in-out forwards;
+}
+ 
+.animation-4 {
+    transform-origin: top center;
+    animation: rotateZ 200ms 200ms ease-in-out forwards;
 }
 
 .header > .selector {
@@ -388,6 +433,8 @@ body {
     justify-content: center;
     background: none;
     border: none;
+    color: var(--accent-color);
+    text-shadow: 1px 1px var(--secondary-dark-color);
 }
 
 .btn:hover {
@@ -400,20 +447,51 @@ body {
     font-size: 0.9em;
 }
 
-.btn-dark-switch {
-    color: var(--accent-color);
-    text-shadow: 2px 2px var(--secondary-dark-color);
+[class^="theme-choice"] {
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0.2rem 0;
+    border: 2px solid;
+    border-top-color: var(--light-text-color);
+    border-left-color: var(--light-text-color);
+    border-bottom-color: var(--secondary-dark-color);
+    border-right-color: var(--secondary-dark-color);
 }
 
-.btn-left, .btn-right {
-    color: var(--accent-color);
-    text-shadow: 2px 2px var(--secondary-dark-color);
+[class^="theme-choice"]:hover {
+    cursor: pointer;
+    opacity: 0.75;
 }
 
-.btn-add {
-    color: var(--accent-color);
-    text-shadow: 2px 2px var(--secondary-dark-color);
+[class^="theme-choice"]:active {
+    border-top-color: var(--secondary-dark-color);
+    border-left-color: var(--secondary-dark-color);
+    border-bottom-color: var(--light-text-color);
+    border-right-color: var(--light-text-color);
+    opacity: 1;
 }
+
+.theme-choice-0 {
+    background-color: #C57B02;
+}
+
+.theme-choice-1 {
+    background-color: #609C88;
+}
+ 
+.theme-choice-2 {
+    background-color: #4A68EA;
+}
+ 
+.theme-choice-3 {
+    background-color: #FF60B6;
+}
+ 
+.theme-choice-4 {
+    background-color: #B10A27;
+}
+ 
 
 .btn-check {
     color: green;
@@ -427,7 +505,7 @@ body {
     text-shadow: 1px 1px var(--light-text-shadow-color);
 }
 
-.fa-edit, .fa-check, .fa-trash {
+.fa-edit, .fa-check, .fa-trash, .fa-palette {
     pointer-events: none;
 }
 
@@ -438,6 +516,10 @@ body {
 
 .hidden {
     display: none;
+}
+
+.display-flex {
+    display: flex !important;
 }
 
 .opacity0 {
@@ -566,3 +648,47 @@ body {
         width: 50%;
     }
 }
+
+/** Keyframes */
+
+@keyframes rotateZ {
+    0% {
+      opacity: 0;
+      transform: translateZ(290px);
+    }
+    80% {
+      transform: translateZ(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+
+  @-webkit-keyframes rotateZ {
+    0% {
+      opacity: 0;
+      transform: translateZ(290px);
+    }
+    80% {
+      transform: translateZ(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+
+  @-moz-keyframes rotateZ {
+    0% {
+      opacity: 0;
+      transform: translateZ(290px);
+    }
+    80% {
+      transform: translateZ(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
