@@ -14,7 +14,7 @@ function toggleDarkTheme() {
 }
 
 //If there is no value in local storage, use system preferences
-if((localStorage.todoAppDark === undefined) && (window.matchMedia('(prefers-color-scheme: dark)'))) body.classList.add('dark');
+if((localStorage.todoAppDark === undefined) && (window.matchMedia('(prefers-color-scheme: dark)'))) document.body.classList.add('dark');
 
 //Fetching from local storage
 if (localStorage.todoAppDark) document.body.classList.add('dark');
