@@ -145,13 +145,13 @@ body {
 }
 
 .header > .top > .clock {
-    width: 4rem;
+    width: 4.6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.8rem;
     font-weight: 700;
+    font-size: 0.8rem;
     color: var(--light-text-color);
     text-shadow: 1px 1px var(--light-text-shadow-color);
     background-color: var(--secondary-dark-color);
@@ -161,10 +161,11 @@ body {
 
 .header > .top > .clock > span {
     width: 15ch;
-    margin: 0.4em;
+    margin: 0.2em;
+    line-height: 1.2em;
 }
 
-.header > .top > .clock :first-child {
+.header > .top > .clock:first-child {
     font-style: italic;
     font-size: 0.8em;
 }
@@ -507,6 +508,28 @@ body {
     font-size: 0.9em;
 }
 
+.btn-off {
+    font-size: 1.2rem;
+    height: 2rem;
+    width: 2rem;
+    margin: 0;
+    color: var(--light-text-color);
+    text-shadow: 1px 1px var(--light-text-shadow-color);
+}
+
+.btn-off:hover {
+    font-size: 1.3rem;
+}
+
+.btn:active {
+    font-size: 1.1rem;
+}
+
+.fa-clock {
+    color: var(--accent-color);
+    text-shadow: 1px 1px var(--secondary-dark-color);
+}
+
 [class^="theme-choice"] {
     border-radius: 50%;
     height: 1.5rem;
@@ -565,7 +588,7 @@ body {
     text-shadow: 1px 1px var(--light-text-shadow-color);
 }
 
-.fa-edit, .fa-check, .fa-trash, .fa-palette {
+.fa-edit, .fa-check, .fa-trash, .fa-palette, .fa-clock, .fa-power-off {
     pointer-events: none;
 }
 
@@ -611,6 +634,11 @@ body {
     pointer-events: none;
 }
 
+.clock-off {
+    background: none !important;
+    border-color: var(--secondary-light-color) !important;
+}
+
 /** Media Querries */
 
 /* ! Height issue quickfix for safari on ios */
@@ -634,7 +662,7 @@ body {
     }
 
     .header > .top > .clock > span {
-        margin: 0.6rem;
+        margin: 0.4rem;
     }
 
     .header > .top > span {

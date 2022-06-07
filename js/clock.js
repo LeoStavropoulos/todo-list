@@ -2,20 +2,18 @@
 const headerTop = document.querySelector(".header > .top");
 const div = document.createElement("div");
 
+div.className = "clock";
+headerTop.prepend(div);
 renderClock();
 
-setInterval(() => {
-    headerTop.firstElementChild.innerHTML = `<span>` + getformatedDate() + `</span> ` + `<span>` + getTime() + `</span>`;
-}, 1000)
+let clockInterval = setInterval(renderClock, 1000);
 
 
 
 //Functions
 function renderClock() {
-    div.className = "clock";
-    headerTop.prepend(div);
-
-    headerTop.firstElementChild.innerHTML = `<span>` + getformatedDate() + `</span> ` + `<span>` + getTime() + `</span>`;
+    headerTop.firstElementChild.innerHTML = `<span>${getformatedDate()}</span> <button class="btn btn-off"><i class="fas fa-power-off"></i></button> <span>${getTime()}</span>`;
+    document.querySelector(".btn-off").addEventListener('click', toggleClock)
 }
 
 
@@ -51,4 +49,35 @@ function getformatedDate() {
 function getTime() {
     const fullDate = new Date();
     return fullDate.toTimeString().slice(0,8);
+}
+
+function toggleClock(e) {
+    const clock = document.querySelector(".clock");
+    clock.classList.toggle("clock-off")
+    clock.firstElementChild.classList.toggle("opacity0");
+    clock.lastElementChild.classList.toggle("opacity0");
+
+    replaceClockIcon(e); 
+    pauseRestartClock(clock);
+}
+
+function replaceClockIcon(e) {
+    const btn = e.target.firstElementChild;
+
+    if (btn.className === "fas fa-power-off") {
+        btn.classList.replace("fa-power-off", "fa-clock");
+        return;
+    } 
+
+    btn.classList.replace("fa-clock", "fa-power-off");
+}
+
+function pauseRestartClock(clock) {
+    if (clock.classList.contains("clock-off")) {
+        clearInterval(clockInterval);
+        return;
+    }
+
+    renderClock();
+    clockInterval = setInterval(renderClock, 1000);
 }
