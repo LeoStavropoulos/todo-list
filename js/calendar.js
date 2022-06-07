@@ -53,7 +53,12 @@ prevBtn.addEventListener('click', function() {
 dateSelector.addEventListener('click', toggleCalendar);
 
 container.addEventListener('click', function(e) {
-    const targetParentClass = e.target.parentElement.className;
+    let targetParentClass;
+    if (e.target.parentElement === null) {
+        targetParentClass = null;
+    } else {
+        targetParentClass = e.target.parentElement.className;
+    }
     
     if ((targetParentClass === 'days') || (targetParentClass === 'selector') || (targetParentClass === 'btn btn-right') || (targetParentClass === 'btn btn-left') || (calendarDialog.getAttribute('open') === null)) return;
     toggleCalendar();
