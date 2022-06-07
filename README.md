@@ -8,15 +8,18 @@ Factory](https://codingfactory.aueb.gr) bootcamp.
 - View unfinished to-dos count, per day.
 - Data stored offline, in browser's Local Storage.
 - Session's data are available even after relaunching browser.
-- Day per day task navigation and monthly calendar view
-- Dark Mode toggle, with choice memory
-- Current date/time display
-- Calendar marks which indicate that there are unfinished todos on the specific date
+- Day per day task navigation and monthly calendar view.
+- Dark Mode toggle, with choice memory.
+- Current date/time display.
+- Calendar marks which indicate that there are unfinished todos on the specific date.
+- Switchable color schemes.
+- Capability to turn the clock on/off.
 
 ## Upcoming Feautures:
-- Themes
-- Drag & Drop list rearranging
-
+- Drag & Drop list rearranging.
+- Todo's clipped text show-on-hover capability.
+- Share todo list feature.
+- Notifications.
 ## References:
 - Fonts:    [Google Fonts](https://fonts.google.com)
 - Icons:    [Font Awesome](https://fontawesome.com)
