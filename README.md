@@ -20,7 +20,14 @@ Factory](https://codingfactory.aueb.gr) bootcamp.
 - Todo's clipped text show-on-hover capability.
 - Share todo list feature.
 - Notifications.
+
+## Technologies Used
+![HTML, CSS, JavaScript](https://skillicons.dev/icons?i=html,css,js)
+
 ## References:
 - Fonts:    [Google Fonts](https://fonts.google.com)
 - Icons:    [Font Awesome](https://fontawesome.com)
-- Favicon: [favicon.io](https://favicon.io)
+- Logo: [Ucraft](https://www.ucraft.com/)
+- Favicon/App Icons: [RealFaviconGenerator](https://realfavicongenerator.net/)
+- Color Scheme: [ColorSpace](https://mycolor.space)
+- README Icons: [Skill Icons](https://skillicons.dev)
