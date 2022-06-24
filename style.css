@@ -88,7 +88,7 @@
     --normal-font-size: 1.2rem;
     --large-font-size: 1.4rem;
     --larger-font-size: 1.5rem;
-    --h1-font-size: 2rem;
+    --h1-font-size: 1.7rem;
     --line-height: 1.3rem;
 
     --todo-height: 3rem;
@@ -145,7 +145,7 @@ body {
 }
 
 .header > .top > .clock {
-    width: 4.6rem;
+    width: 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -652,6 +652,12 @@ body {
 @media screen and (min-height: 800px) {
     .list {
         height: 70%;
+    }
+}
+
+@media screen and (min-width: 350px) {
+    :root {
+        --h1-font-size: 2rem;
     }
 }
 
